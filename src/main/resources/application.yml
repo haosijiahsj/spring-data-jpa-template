@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: ${comm.logic.mysql.newshop.url}
+    username: root
+    password: 123456
+    driverClassName: com.mysql.jdbc.Driver
+    max-active: 150
+    max-idle: 50
+    min-idle: 30
