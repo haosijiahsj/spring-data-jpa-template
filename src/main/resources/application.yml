@@ -1,9 +1,12 @@
 spring:
   datasource:
-    url: ${comm.logic.mysql.newshop.url}
+    url: jdbc:mysql://localhost/zzz?characterEncoding=utf-8
     username: root
     password: 123456
     driverClassName: com.mysql.jdbc.Driver
     max-active: 150
     max-idle: 50
     min-idle: 30
+  jpa:
+    hibernate:
+      show-sql: true
