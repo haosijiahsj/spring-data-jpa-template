@@ -1,7 +1,7 @@
-package com.zzz;
+package com.zzz.service;
 
+import com.zzz.BaseTest;
 import com.zzz.domain.User;
-import com.zzz.service.UserService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;

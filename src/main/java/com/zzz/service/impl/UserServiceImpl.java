@@ -1,5 +1,6 @@
 package com.zzz.service.impl;
 
+import com.google.common.base.Preconditions;
 import com.zzz.dao.UserRepository;
 import com.zzz.domain.User;
 import com.zzz.service.UserService;
@@ -25,6 +26,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findUserById(Long id) {
+        Preconditions.checkNotNull(id, "查询参数id不能为空");
         return userRepository.findById(id);
     }
 }

@@ -8,5 +8,29 @@ import java.util.List;
 public class ResponseEntity<T> {
     private int msgCode;
     private String msgContent;
-    private List<T> content;
+    private T content;
+
+    public int getMsgCode() {
+        return msgCode;
+    }
+
+    public void setMsgCode(int msgCode) {
+        this.msgCode = msgCode;
+    }
+
+    public String getMsgContent() {
+        return msgContent;
+    }
+
+    public void setMsgContent(String msgContent) {
+        this.msgContent = msgContent;
+    }
+
+    public T getContent() {
+        return content;
+    }
+
+    public void setContent(T content) {
+        this.content = content;
+    }
 }

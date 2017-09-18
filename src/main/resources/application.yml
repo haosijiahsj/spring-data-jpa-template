@@ -9,4 +9,4 @@ spring:
     min-idle: 30
   jpa:
     hibernate:
-      show-sql: true
+      show_sql: true

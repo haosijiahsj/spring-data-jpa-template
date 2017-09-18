@@ -2,8 +2,10 @@ package com.zzz.controller;
 
 import com.zzz.domain.User;
 import com.zzz.service.UserService;
+import com.zzz.support.ResponseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -26,6 +28,16 @@ public class HomeController {
     @RequestMapping("/allUser")
     public List<User> findAllUser() {
         return userService.findAllUser();
+    }
+
+    @RequestMapping(value = "/findAllUser", method = RequestMethod.POST)
+    public ResponseEntity<List<User>> findUser() {
+        ResponseEntity<List<User>> responseEntity = new ResponseEntity<>();
+        responseEntity.setMsgCode(200);
+        responseEntity.setMsgContent("success");
+        responseEntity.setContent(userService.findAllUser());
+
+        return responseEntity;
     }
 
 }
