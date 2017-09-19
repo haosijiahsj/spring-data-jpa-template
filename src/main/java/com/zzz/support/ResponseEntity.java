@@ -1,14 +1,16 @@
 package com.zzz.support;
 
+import org.springframework.http.HttpMessage;
+
 import java.util.List;
 
 /**
  * Created by hushengjun on 2017/9/14.
  */
-public class ResponseEntity<T> {
+public class ResponseEntity {
     private int msgCode;
     private String msgContent;
-    private T content;
+    private Object content;
 
     public int getMsgCode() {
         return msgCode;
@@ -26,11 +28,11 @@ public class ResponseEntity<T> {
         this.msgContent = msgContent;
     }
 
-    public T getContent() {
+    public Object getContent() {
         return content;
     }
 
-    public void setContent(T content) {
+    public void setContent(Object content) {
         this.content = content;
     }
 }

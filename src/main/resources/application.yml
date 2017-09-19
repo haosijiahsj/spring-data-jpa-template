@@ -8,5 +8,4 @@ spring:
     max-idle: 50
     min-idle: 30
   jpa:
-    hibernate:
-      show_sql: true
+    show-sql: true

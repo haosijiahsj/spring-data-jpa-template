@@ -31,8 +31,8 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/findAllUser", method = RequestMethod.POST)
-    public ResponseEntity<List<User>> findUser() {
-        ResponseEntity<List<User>> responseEntity = new ResponseEntity<>();
+    public ResponseEntity findUser() {
+        ResponseEntity responseEntity = new ResponseEntity();
         responseEntity.setMsgCode(200);
         responseEntity.setMsgContent("success");
         responseEntity.setContent(userService.findAllUser());
