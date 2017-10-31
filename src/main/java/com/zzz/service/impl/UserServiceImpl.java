@@ -8,6 +8,8 @@ import com.zzz.domain.User;
 import com.zzz.domain.UserInfo;
 import com.zzz.service.UserService;
 import org.apache.commons.collections.CollectionUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,11 +19,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
+ * ok
  * Created by hushengjun on 2017/9/14.
  */
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class UserServiceImpl implements UserService {
+
+    private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+
     @Autowired
     private UserRepository userRepository;
 
@@ -56,4 +62,5 @@ public class UserServiceImpl implements UserService {
 
         return Collections.emptyList();
     }
+
 }
