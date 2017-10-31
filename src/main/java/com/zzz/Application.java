@@ -16,23 +16,25 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 /**
  * Created by hushengjun on 2017/9/14.
  */
-@EntityScan("com.zzz.domain")
-@EnableJpaRepositories("com.zzz.dao")
+@EntityScan({"com.zzz.domain"})
+@EnableJpaRepositories({"com.zzz.dao"})
 @EnableTransactionManagement
 @Configuration
 @EnableAutoConfiguration
 @ImportResource({"classpath:config/applicationContext.xml"})
 public class Application implements EmbeddedServletContainerCustomizer {
-    private static final Logger logger = LoggerFactory.getLogger(Application.class);
-    private static final int webPort = 8080;
 
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
-        logger.info("The Application Has Been Started Successfully...");
-    }
+    private static final Logger logger = LoggerFactory.getLogger(Application.class);
+    private static final int WEB_PORT = 8080;
 
     @Override
     public void customize(ConfigurableEmbeddedServletContainer configurableEmbeddedServletContainer) {
-        configurableEmbeddedServletContainer.setPort(webPort);
+        configurableEmbeddedServletContainer.setPort(WEB_PORT);
     }
+
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+        logger.info("The Application spring-data-jpa-template Has Been Started Successfully...");
+    }
+
 }

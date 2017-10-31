@@ -4,9 +4,7 @@ import com.zzz.domain.User;
 import com.zzz.service.UserService;
 import com.zzz.support.ResponseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,12 +30,38 @@ public class HomeController {
 
     @RequestMapping(value = "/findAllUser", method = RequestMethod.POST)
     public ResponseEntity findUser() {
-        ResponseEntity responseEntity = new ResponseEntity();
-        responseEntity.setMsgCode(200);
-        responseEntity.setMsgContent("success");
-        responseEntity.setContent(userService.findAllUser());
+        return ResponseEntity.builder()
+                .msgCode(200)
+                .msgContent("success")
+                .content(userService.findAllUser())
+                .build();
+    }
 
-        return responseEntity;
+    @GetMapping("findUserById/{id}")
+    public ResponseEntity findUserById(@PathVariable("id") Long id) {
+        return ResponseEntity.builder()
+                .msgCode(200)
+                .msgContent("success")
+                .content(userService.findUserById(id))
+                .build();
+    }
+
+    @PostMapping("findAllMaleUserInfo")
+    public ResponseEntity findAllMaleUserInfo() {
+        return ResponseEntity.builder()
+                .msgCode(200)
+                .msgContent("success")
+                .content(userService.findAllMaleUserInfo())
+                .build();
+    }
+
+    @GetMapping("findAllUserId")
+    public ResponseEntity findAllUserId() {
+        return ResponseEntity.builder()
+                .msgCode(200)
+                .msgContent("success")
+                .content(userService.findAllUserId())
+                .build();
     }
 
 }

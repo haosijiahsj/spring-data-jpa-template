@@ -1,6 +1,7 @@
 package com.zzz.service;
 
 import com.zzz.domain.User;
+import com.zzz.domain.UserInfo;
 
 import java.util.List;
 
@@ -12,5 +13,9 @@ public interface UserService {
     List<User> findAllUser();
 
     User findUserById(Long id);
+
+    List<UserInfo> findAllMaleUserInfo();
+
+    List<Long> findAllUserId();
 
 }
