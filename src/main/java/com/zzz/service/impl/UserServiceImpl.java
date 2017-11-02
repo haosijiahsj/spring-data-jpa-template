@@ -8,9 +8,12 @@ import com.zzz.domain.User;
 import com.zzz.domain.UserInfo;
 import com.zzz.service.UserService;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -61,6 +64,30 @@ public class UserServiceImpl implements UserService {
         }
 
         return Collections.emptyList();
+    }
+
+    @Override
+    public void saveUser(User user) {
+        Preconditions.checkNotNull(user, "入参user不能为空！");
+        Preconditions.checkNotNull(user.getUserInfo(), "入参userInfo不能为空！");
+        userRepository.save(user);
+    }
+
+    @Override
+    public Page<UserInfo> findAllUserInfo(Pageable pageable) {
+        return userInfoRepository.findAll(pageable);
+    }
+
+    @Override
+    public Page<UserInfo> findBySex(Integer sex, Pageable pageable) {
+        Preconditions.checkNotNull(sex, "入参sex不能为空！");
+        return userInfoRepository.findBySex(sex, pageable);
+    }
+
+    @Override
+    public Page<UserInfo> findByNameLike(String name, Pageable pageable) {
+        Preconditions.checkArgument(StringUtils.isNoneEmpty(name), "入参name不能为空！");
+        return userInfoRepository.findByNameLike(name, pageable);
     }
 
 }

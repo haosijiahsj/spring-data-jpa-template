@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * Created by hushengjun on 2017/9/14.
+ * app
  */
 @EntityScan({"com.zzz.domain"})
 @EnableJpaRepositories({"com.zzz.dao"})
@@ -34,7 +35,7 @@ public class Application implements EmbeddedServletContainerCustomizer {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
-        logger.info("The Application spring-data-jpa-template Has Been Started Successfully...");
+        logger.info("The Application of zzz-sample Started Successfully...");
     }
 
 }

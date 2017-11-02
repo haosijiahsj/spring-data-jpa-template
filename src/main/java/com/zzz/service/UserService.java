@@ -2,6 +2,8 @@ package com.zzz.service;
 
 import com.zzz.domain.User;
 import com.zzz.domain.UserInfo;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -17,5 +19,13 @@ public interface UserService {
     List<UserInfo> findAllMaleUserInfo();
 
     List<Long> findAllUserId();
+
+    void saveUser(User user);
+
+    Page<UserInfo> findAllUserInfo(Pageable pageable);
+
+    Page<UserInfo> findBySex(Integer sex, Pageable pageable);
+
+    Page<UserInfo> findByNameLike(String name, Pageable pageable);
 
 }
